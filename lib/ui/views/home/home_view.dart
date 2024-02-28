@@ -38,26 +38,27 @@ class HomeView extends StackedView<HomeViewModel> {
                       height: 40,
                       width: 150,
                       child: MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
+                        color: Colors.black,
+                        onPressed: viewModel.incrementCounter,
+                        child: Text(
+                          viewModel.counterLabel,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
-                    ),
                     ),
                     const Padding(padding: EdgeInsets.only(top: 20.0)),
                     SizedBox(
                       width: 150,
                       height: 40,
                       child: MaterialButton(
-                      color: Colors.black,
-                      onPressed: ()=> viewModel.navigateToUsersView(),
-                      child: const Text(
-                        'Go to Users View',
-                        style: TextStyle(color: Colors.white),
+                        color: Colors.black,
+                        onPressed: () => viewModel.navigateToUsersView(),
+                        child: const Text(
+                          'Go to Users View',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
-                    ),)
+                    )
                   ],
                 ),
                 Row(
