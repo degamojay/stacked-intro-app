@@ -74,7 +74,56 @@ class UsersView extends StackedView<UsersViewModel> {
                             ),
                           ),
                         ),
-                        Text(viewModel.users.join(', ')),
+                        const Padding(padding: EdgeInsets.only(top: 20)),
+                        SizedBox(
+                          height: 400,
+                          child: ListView.builder(
+                            itemCount: viewModel.users.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(viewModel.getId(index).toString().padRight(15)),
+                                        const SizedBox(width: 8),
+                                        Text(viewModel.getUser(index)),
+                                      ],
+                                    ),
+                                    FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Row(
+                                        children: [
+                                          Text(viewModel.getAddress(index)),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            viewModel.getEmail(index),
+                                            style: const TextStyle(fontSize: 12),
+                                            textAlign: TextAlign.start,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            viewModel.getPhone(index),
+                                            style: const TextStyle(fontSize: 12),
+                                            textAlign: TextAlign.end,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),                                
+                              );
+                            },
+                          ),
+                        ),
                       ]),
                     ])))));
   }

@@ -2,6 +2,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_app/app/app.dialogs.dart';
 import 'package:stacked_app/app/app.locator.dart';
 import 'package:stacked_app/app/app.router.dart';
+import 'package:stacked_app/models/user.dart';
 import 'package:stacked_app/services/users_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -10,8 +11,8 @@ class UsersViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _usersService = locator<UsersService>();
 
-  List<String> _users = [];
-  List<String> get users => _users;
+  List<User> _users = [];
+  List<User> get users => _users;
 
   navigateToHomeView() async {
     await _navigationService.navigateToHomeView();
@@ -29,5 +30,25 @@ class UsersViewModel extends BaseViewModel {
       _users = await _usersService.getUsers();
       rebuildUi();
     }
+
+  getUser(index){
+    return users[index].name;
+  }
+
+  getId(index){
+    return users[index].id;
+  }
+  
+  getAddress(index){
+    return users[index].address.suite + users[index].address.street + users[index].address.city + users[index].address.zipcode; 
+  }
+
+  getEmail(index){
+    return users[index].email;
+  }
+
+  getPhone(index){
+    return users[index].phone;
+  }
 
 }
